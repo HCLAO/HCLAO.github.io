@@ -1,244 +1,193 @@
 /* =====================================
-   Hong Cheng Wealth Architecture
-   Premium Black Gold Edition
+   鴻成地政士事務所
+   Wealth Architecture Website
+   Version 1.0
 ===================================== */
 
-:root {
+window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+});
 
-  --gold: #d4af37;
-  --gold-light: #f7d978;
-  --gold-dark: #8f7020;
+/* =====================================
+   回到頂端按鈕
+===================================== */
 
-  --bg: #0a0a0a;
-  --bg-secondary: #111111;
+const topBtn = document.getElementById("topBtn");
 
-  --card: #181818;
+window.addEventListener("scroll", () => {
 
-  --text: #f5f5f5;
-  --muted: #c9c9c9;
+    if (window.scrollY > 500) {
 
-  --border: #3b3020;
+        topBtn.classList.add("show");
 
-  --shadow:
-    0 10px 30px rgba(212,175,55,.12);
-}
+    } else {
 
-/* =======================
-   Reset
-======================= */
+        topBtn.classList.remove("show");
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+    }
 
-html{
-  scroll-behavior:smooth;
-}
+});
 
-body{
+topBtn.addEventListener("click", () => {
 
-  font-family:
-  "Noto Sans TC",
-  "Microsoft JhengHei",
-  sans-serif;
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
-  background:var(--bg);
+});
 
-  color:var(--text);
+/* =====================================
+   平滑捲動
+===================================== */
 
-  line-height:1.8;
+document
+.querySelectorAll('nav a[href^="#"]')
+.forEach(anchor => {
 
-  overflow-x:hidden;
-}
+    anchor.addEventListener("click", function(e){
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
+        e.preventDefault();
 
-img{
-  display:block;
-  max-width:100%;
-}
+        const target =
+        document.querySelector(
+        this.getAttribute("href")
+        );
 
-/* =======================
-   Scroll Bar
-======================= */
+        if(target){
 
-::-webkit-scrollbar{
-  width:10px;
-}
+            window.scrollTo({
 
-::-webkit-scrollbar-track{
-  background:#111;
-}
+                top:
+                target.offsetTop - 80,
 
-::-webkit-scrollbar-thumb{
-  background:var(--gold);
-  border-radius:20px;
-}
+                behavior:"smooth"
 
+            });
 
-/* =======================
-   Navigation
-======================= */
+        }
 
-nav{
+    });
 
-  position:fixed;
+});
 
-  top:0;
-  left:0;
+/* =====================================
+   導覽列 Active 狀態
+===================================== */
 
-  width:100%;
-  height:80px;
+const sections =
+document.querySelectorAll("section");
 
-  background:
-  rgba(0,0,0,.92);
+const navLinks =
+document.querySelectorAll("nav a");
 
-  backdrop-filter:blur(15px);
+window.addEventListener("scroll", () => {
 
-  display:flex;
+    let currentSection = "";
 
-  justify-content:space-between;
-  align-items:center;
+    sections.forEach(section => {
 
-  padding:0 50px;
+        const sectionTop =
+        section.offsetTop - 150;
 
-  border-bottom:
-  1px solid rgba(212,175,55,.25);
+        const sectionHeight =
+        section.offsetHeight;
 
-  z-index:9999;
+        if(
 
-  transition:.3s;
-}
+            pageYOffset >= sectionTop &&
+            pageYOffset < sectionTop + sectionHeight
 
-.logo{
+        ){
 
-  color:var(--gold);
+            currentSection =
+            section.getAttribute("id");
 
-  font-size:clamp(
-    18px,
-    2vw,
-    28px
-  );
+        }
 
-  font-weight:700;
+    });
 
-  white-space:nowrap;
+    navLinks.forEach(link => {
 
-  letter-spacing:1px;
-}
+        link.classList.remove("active");
 
-nav ul{
+        if(
 
-  display:flex;
+            link.getAttribute("href") ===
+            "#" + currentSection
 
-  gap:30px;
+        ){
 
-  list-style:none;
-}
+            link.classList.add("active");
 
-nav li{
+        }
 
-  position:relative;
-}
+    });
 
-nav a{
+});
 
-  color:white;
+/* =====================================
+   Scroll Reveal Animation
+===================================== */
 
-  transition:.3s;
-}
+const animateElements =
+document.querySelectorAll(
 
-nav a:hover{
+".card, .pillar, .service, .gallery img, .contact-card"
 
-  color:var(--gold);
-}
+);
 
-nav a.active{
+animateElements.forEach(el => {
 
-  color:var(--gold);
-}
+    el.classList.add("fade-up");
 
-nav a.active::after{
+});
 
-  content:"";
+const observerOptions = {
 
-  display:block;
+    threshold:0.15
 
-  width:100%;
+};
 
-  height:2px;
+const revealObserver =
+new IntersectionObserver(
 
-  margin-top:4px;
+(entries)=>{
 
-  background:var(--gold);
-}
+    entries.forEach(entry=>{
 
+        if(entry.isIntersecting){
 
-/* =======================
-   HERO
-======================= */
+            entry.target.classList.add("show");
 
-.hero{
+        }
 
-  height:100vh;
+    });
 
-  background:
-  linear-gradient(
-      135deg,
-      #050505,
-      #171717
-  );
+},
 
-  display:flex;
+observerOptions
 
-  justify-content:center;
-  align-items:center;
+);
 
-  text-align:center;
+animateElements.forEach(el=>{
 
-  position:relative;
+    revealObserver.observe(el);
 
-  overflow:hidden;
-}
+});
 
-.hero::before{
+/* =====================================
+   Gallery Image Animation
+===================================== */
 
-  content:"";
+const galleryImages =
+document.querySelectorAll(".gallery img");
 
-  position:absolute;
+galleryImages.forEach(img=>{
 
-  width:900px;
-  height:900px;
+    img.style.opacity = "0";
 
-  border-radius:50%;
+    img.style.transform =
+    "translateY(40px)";
 
-  background:
-  radial-gradient(
-      circle,
-      rgba(212,175,55,.08),
-      transparent 70%
-  );
-
-  filter:blur(50px);
-}
-
-.hero-overlay{
-
-  max-width:1000px;
-
-  padding:20px;
-
-  position:relative;
-
-  z-index:2;
-}
-
-.gold-line{
-
-  width:120px;
-  height
+    img.
