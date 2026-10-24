@@ -1,260 +1,482 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鴻成地政士事務所 - 資產傳承顧問團隊</title>
-    <!-- Tailwind CSS 與 FontAwesome 圖標庫 -->
-    <script src="https://tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <style>
-        @import url('https://googleapis.com');
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-color: #fbfbf9;
-        }
-        .serif {
-            font-family: 'Noto Serif TC', serif;
-        }
-        /* 深邃藍金漸層網絡背景 */
-        .hero-bg {
-            background-color: #0f172a;
-            background-image: radial-gradient(at 0% 0%, rgba(217, 119, 6, 0.2) 0px, transparent 50%), 
-                              radial-gradient(at 50% 0%, rgba(15, 23, 42, 0.95) 0px, transparent 50%),
-                              linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
-    </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+鴻成地政士事務所｜財富傳承藍圖
+</title>
+
+<meta
+name="description"
+content="財富傳承、不動產傳承、家族治理、信託規劃、遺囑規劃、資產保全顧問服務">
+
+<meta
+name="keywords"
+content="財富傳承,資產保全,地政士,信託,遺囑,不動產規劃">
+
+<link
+rel="stylesheet"
+href="style.css">
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+rel="stylesheet">
+
 </head>
-<body class="text-slate-800 leading-relaxed scroll-smooth">
 
-    <!-- 主視覺形象區塊 -->
-    <header class="relative hero-bg py-36 px-6 text-center border-b-4 border-amber-600 overflow-hidden">
-        <!-- 背景幾何裝飾線條，確保 100% 顯現不掉圖 -->
-        <div class="absolute inset-0 opacity-15 pointer-events-none">
-            <svg width="100%" height="100%" xmlns="http://w3.org">
-                <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#d97706" stroke-width="0.5"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
-        </div>
-        <div class="max-w-4xl mx-auto relative z-10">
-            <div class="inline-flex items-center gap-2 bg-amber-600/20 border border-amber-500/30 px-4 py-1.5 rounded-full text-amber-400 font-medium tracking-widest text-sm uppercase mb-6">
-                <i class="fa-solid fa-gavel text-xs text-amber-400"></i> 鴻成地政士事務所
-            </div>
-            <!-- 強制亮白色字體 -->
-            <h1 class="serif text-4xl md:text-6xl font-bold tracking-wide leading-tight text-white mb-6">
-                傳承，不裝飾財富的轉移，<br class="hidden md:inline">更是家族願景的永續
-            </h1>
-            <!-- 強制黃金色字體 -->
-            <p class="text-xl md:text-2xl text-amber-400 font-light max-w-2xl mx-auto mb-10 serif">
-                為您的世代基業，構築一座堅實的堡壘
-            </p>
-            <a href="#contact" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-medium text-lg px-8 py-3.5 rounded shadow-lg transition duration-300 transform hover:-translate-y-0.5">
-                <i class="fa-solid fa-calendar-check"></i> 預約免費深度諮詢
-            </a>
-        </div>
-    </header>
+<body>
 
-    <!-- 三大挑戰區塊 -->
-    <section class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <span class="text-amber-600 font-bold tracking-wider text-sm uppercase block mb-2">— CRITICAL RISKS —</span>
-            <h2 class="serif text-3xl md:text-4xl font-bold text-slate-900 mb-4">每一筆傳承之路，都潛藏著三大挑戰</h2>
-            <div class="h-1 w-16 bg-amber-600 mx-auto mt-4"></div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-xl shadow-md border border-slate-100 transition duration-300 hover:shadow-xl">
-                <div class="w-14 h-14 bg-amber-50 rounded-lg flex items-center justify-center text-amber-600 text-2xl mb-6 shadow-sm">
-                    <i class="fa-solid fa-coins"></i>
-                </div>
-                <h3 class="serif text-xl font-bold text-slate-900 mb-3">高額稅負</h3>
-                <p class="text-slate-600">未經規劃的資產轉移，可能導致高達數百萬甚至千萬的稅務成本，侵蝕您辛苦積累的財富。</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-md border border-slate-100 transition duration-300 hover:shadow-xl">
-                <div class="w-14 h-14 bg-amber-50 rounded-lg flex items-center justify-center text-amber-600 text-2xl mb-6 shadow-sm">
-                    <i class="fa-solid fa-people-arrows"></i>
-                </div>
-                <h3 class="serif text-xl font-bold text-slate-900 mb-3">家族紛爭</h3>
-                <p class="text-slate-600">分配方式的模糊或不公，容易引發家庭成員間的矛盾與對立，和睦的家庭關係是無價的資產。</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-md border border-slate-100 transition duration-300 hover:shadow-xl">
-                <div class="w-14 h-14 bg-amber-50 rounded-lg flex items-center justify-center text-amber-600 text-2xl mb-6 shadow-sm">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <h3 class="serif text-xl font-bold text-slate-900 mb-3">未知風險</h3>
-                <p class="text-slate-600">未來的婚姻變化、商業風險甚至詐騙，都可能在瞬間瓦解您為下一代準備的保障。</p>
-            </div>
-        </div>
-    </section>
+<button id="topBtn">
+↑
+</button>
 
-    <!-- 圖像化對比區塊 -->
-    <section class="py-24 bg-slate-900 text-white px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700/60 flex items-center justify-center min-h-[300px] relative overflow-hidden shadow-inner">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-amber-600/5 to-transparent"></div>
-                    <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="opacity-80">
-                        <path d="M12 22V2M2 5h20M5 5a7 7 0 0 0 14 0M3 21h18M12 21H3m9 0h9" />
-                        <circle cx="5" cy="5" r="1" />
-                        <circle cx="19" cy="5" r="1" />
-                    </svg>
-                </div>
-                <div class="space-y-8">
-                    <div>
-                        <span class="text-amber-500 font-bold tracking-wider text-sm uppercase block mb-2">— CASE STUDY —</span>
-                        <h2 class="serif text-3xl md:text-4xl font-bold text-white mb-4">一棟房產，兩種未來<br><span class="text-amber-400">規劃與否的巨大稅務差異</span></h2>
-                        <p class="text-slate-400">以市價 3000 萬的房產傳承為例：</p>
-                    </div>
-                    <div class="bg-slate-800 p-6 rounded-lg border-l-4 border-red-500">
-                        <h4 class="font-bold text-red-400 text-lg mb-1"><i class="fa-solid fa-triangle-exclamation"></i> 未經規劃的繼承</h4>
-                        <p class="text-slate-300 text-sm">未來傳承可能面臨 <span class="text-red-400 font-bold text-xl">600 萬至 1100 萬</span> 的鉅額稅負（含遺產稅與房地合一稅）。</p>
-                    </div>
-                    <div class="bg-slate-800 p-6 rounded-lg border-l-4 border-emerald-500">
-                        <h4 class="font-bold text-emerald-400 text-lg mb-1"><i class="fa-solid fa-circle-check"></i> 透過專業策略規劃</h4>
-                        <p class="text-slate-300 text-sm">透過合法有效的宏觀策略，顯著降低稅務衝擊，將最大化的資產百分之百留給摯愛的家人。</p>
-                    </div>
-                    <p class="text-xs text-slate-500 italic">＊註腳：稅務估算依個案資產結構與現行法規而定。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- 五大支柱架構區塊 -->
-    <section class="py-24 px-6 bg-slate-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <span class="text-amber-600 font-bold tracking-wider text-sm uppercase block mb-2">— THE SYSTEM —</span>
-                <h2 class="serif text-3xl md:text-4xl font-bold text-slate-900 mb-4">「傳承堡壘」五大支柱守護體系</h2>
-                <p class="text-slate-500 max-w-xl mx-auto mt-2">應對複雜挑戰，需要系統性的完整藍圖，而非零散的頭痛醫頭工法。</p>
-                <div class="h-1 w-16 bg-amber-600 mx-auto mt-4"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/60 text-center transition hover:shadow-md">
-                    <div class="text-amber-600 text-xl mb-3"><i class="fa-solid fa-umbrella"></i></div>
-                    <h4 class="serif font-bold text-lg mb-3 text-slate-900">第一支柱<br>退休規劃</h4>
-                    <p class="text-xs text-slate-600 text-justify">先保全自己再傳承。確保退休金流無虞，在贈與與自我保留間取得完美平衡。</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/60 text-center transition hover:shadow-md">
-                    <div class="text-amber-600 text-xl mb-3"><i class="fa-solid fa-calculator"></i></div>
-                    <h4 class="serif font-bold text-lg mb-3 text-slate-900">第二支柱<br>稅務策略</h4>
-                    <p class="text-xs text-slate-600 text-justify">積極規劃新制房地合一稅、贈與稅與遺產稅，將合法的節稅轉化為資產優勢。</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/60 text-center transition hover:shadow-md">
-                    <div class="text-amber-600 text-xl mb-3"><i class="fa-solid fa-diagram-project"></i></div>
-                    <h4 class="serif font-bold text-lg mb-3 text-slate-900">第三支柱<br>資產分配</h4>
-                    <p class="text-xs text-slate-600 text-justify">清晰分配是和睦基石。朝「產權單獨所有」方向規劃，徹底杜絕多共有產權衍生內訌。</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/60 text-center transition hover:shadow-md">
-                    <div class="text-amber-600 text-xl mb-3"><i class="fa-solid fa-scale-balanced"></i></div>
-                    <h4 class="serif font-bold text-lg mb-3 text-slate-900">第四支柱<br>風險控管</h4>
-                    <p class="text-xs text-slate-600 text-justify">建立具法律效力的機制，包含預立遺囑確定分配、信託管理資產、保險鎖定受益人。</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/60 text-center transition hover:shadow-md">
-                    <div class="text-amber-600 text-xl mb-3"><i class="fa-solid fa-vault"></i></div>
-                    <h4 class="serif font-bold text-lg mb-3 text-slate-900">第五支柱<br>資產保全</h4>
-                    <p class="text-xs text-slate-600 text-justify">建立抵禦風雨的盾牌。預防財富移轉給年輕繼承人的外部侵害，並保全婚姻資產。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<nav>
 
-    <!-- 工具箱深挖區塊 -->
-    <section class="py-24 bg-slate-900 text-slate-300 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-16">
-                <div class="lg:col-span-1">
-                    <span class="text-amber-400 font-bold tracking-wider text-sm uppercase block mb-2">— EXPERT TOOLKIT —</span>
-                    <h2 class="serif text-3xl font-bold text-white">傳承堡壘的<br>建築師工具箱</h2>
-                    <p class="text-slate-400 text-sm mt-4">我們絕不綁定單一金融產品，而是靈活交叉組合最適合您家族願景的策略機制。</p>
-                </div>
-                <div class="lg:col-span-2 bg-gradient-to-br from-amber-600/10 to-slate-800 p-8 rounded-2xl border border-slate-700/60 flex justify-around items-center min-h-[160px]">
-                    <div class="text-center text-amber-500/40"><i class="fa-solid fa-shield-halved text-5xl"></i></div>
-                    <div class="text-center text-amber-500/40"><i class="fa-solid fa-building-columns text-5xl"></i></div>
-                    <div class="text-center text-amber-500/40"><i class="fa-solid fa-signature text-5xl"></i></div>
-                </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-xl bg-slate-800 border border-slate-700/60">
-                    <div class="text-amber-400 text-xl mb-4"><i class="fa-solid fa-file-signature"></i> 遺囑 (Will)</div>
-                    <p class="text-sm text-slate-300 mb-4">解決「資產分配」的核心法律基礎。確保意願身後被精準執行，並提早鋪墊合法規避特留分限制的配套機制。</p>
-                </div>
-                <div class="p-8 rounded-xl bg-slate-800 border border-slate-700/60">
-                    <div class="text-amber-400 text-xl mb-4"><i class="fa-solid fa-key"></i> 信託 (Trust)</div>
-                    <p class="text-sm text-slate-300 mb-4">解決「資產保全」與「指定照護用途」的最強壁壘。防止繼承人一次獲取大筆資金而被揮霍、誘騙或外流。</p>
-                </div>
-                <div class="p-8 rounded-xl bg-slate-800 border border-slate-700/60">
-                    <div class="text-amber-400 text-xl mb-4"><i class="fa-solid fa-heart-pulse"></i> 策略保險 (Insurance)</div>
-                    <p class="text-sm text-slate-300 mb-4">擁有絕對掌控權，可創造高槓桿的現金流池。更能在身後迅速變現為高額免稅現金，做為繳納遺產稅的「黃金稅源」。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="logo">
 
-    <!-- 團隊對比與專業承諾 -->
-    <section class="py-24 px-6 max-w-5xl mx-auto text-center">
-        <span class="text-amber-600 font-bold tracking-wider text-sm uppercase block mb-2">— OUR PROMISE —</span>
-        <h2 class="serif text-3xl font-bold text-slate-900 mb-4">超越單一理財工具的全面性資產規劃</h2>
-        <p class="text-slate-500 mb-12 text-sm">我們與傳統金融銷售、保險經紀人的根本性差異：</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-            <div class="bg-white p-8 rounded-xl border border-slate-200">
-                <h4 class="serif text-xl font-bold text-slate-400 mb-4"><i class="fa-solid fa-store-slash"></i> 一般理專 / 保經</h4>
-                <ul class="space-y-3 text-slate-500 text-sm">
-                    <li><i class="fa-solid fa-ban text-xs mr-2"></i> <strong>焦點：</strong> 商品導向（以銷售金融商品為考量）</li>
-                    <li><i class="fa-solid fa-ban text-xs mr-2"></i> <strong>範疇：</strong> 侷限於特定且零散的金融工具</li>
-                    <li><i class="fa-solid fa-ban text-xs mr-2"></i> <strong>角色：</strong> 純粹的銷售人員與執行人員</li>
-                </ul>
-            </div>
-            <div class="bg-amber-50/50 p-8 rounded-xl border-2 border-amber-600/40 shadow-sm">
-                <h4 class="serif text-xl font-bold text-amber-900 mb-4"><i class="fa-solid fa-user-tie"></i> 鴻成地政士事務所團隊</h4>
-                <ul class="space-y-3 text-slate-700 text-sm font-medium">
-                    <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> <strong>焦點：</strong> 客戶真實全面傳承需求導向</li>
-                    <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> <strong>範疇：</strong> 橫跨稅務、法律民法、金融保險的全整合</li>
-                    <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> <strong>角色：</strong> 您家族專屬的頂層資產架構設計師</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+鴻成地政士事務所
 
-    <!-- 聯絡資訊區塊 -->
-    <section id="contact" class="bg-slate-900 text-white py-24 px-6 border-t-4 border-amber-600">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="serif text-3xl md:text-4xl font-bold text-amber-100 mb-6">構築您的傳承堡壘，從第一次深度對話開始</h2>
-            <p class="text-slate-400 max-w-xl mx-auto mb-12 text-sm">
-                每一座偉大的建築，都始於一張精密的藍圖。我們邀請您進行一場完全保密、無壓力的初步對話。
-            </p>
-            <div class="bg-slate-800 p-8 rounded-2xl max-w-lg mx-auto text-left border border-slate-700 space-y-6 shadow-2xl">
-                <div class="border-b border-slate-700 pb-4">
-                    <h3 class="serif text-2xl font-bold text-white mb-1">鴻成地政士事務所</h3>
-                    <p class="text-amber-400 font-medium text-sm tracking-widest uppercase">資產傳承頂層顧問團隊</p>
-                </div>
-                <div class="space-y-4 text-slate-300">
-                    <div class="flex items-center gap-4 bg-slate-900/50 p-4 rounded-xl border border-slate-700/50">
-                        <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-amber-500">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-500">專線電話</p>
-                            <p class="font-medium tracking-wider text-white">0910749363</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4 bg-slate-900/50 p-4 rounded-xl border border-slate-700/50">
-                        <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-amber-500">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-500">電子郵件信箱</p>
-                            <p class="font-medium text-white">honecheng059@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <p class="text-xs text-slate-600 mt-16">&copy; 2026 鴻成地政士事務所. All Rights Reserved. 本網站由 GitHub Pages 託管發布。</p>
-        </div>
-    </section>
+</div>
+
+<ul>
+
+<li>
+<a href="#about">
+關於我們
+</a>
+</li>
+
+<li>
+<a href="#pillars">
+五大工程
+</a>
+</li>
+
+<li>
+<a href="#diagnosis">
+六象限診斷
+</a>
+</li>
+
+<li>
+<a href="#slides">
+簡報展示
+</a>
+</li>
+
+<li>
+<a href="#contact">
+聯絡我們
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+<header class="hero">
+
+<div class="hero-overlay">
+
+<span class="hero-tag">
+
+WEALTH ARCHITECTURE
+
+</span>
+
+<h1>
+
+財富傳承的全局視野
+
+</h1>
+
+<p>
+
+跨越法律、稅務與金融
+打造世代永續的資產架構
+
+</p>
+
+<p>
+
+專為高資產家族打造的專屬藍圖
+
+</p>
+
+<a
+href="#contact"
+class="btn-gold">
+
+預約專屬諮詢
+
+</a>
+
+</div>
+
+</header>
+
+<section id="about">
+
+<h2>
+
+為什麼傳統財富傳承經常失效？
+
+</h2>
+
+<p class="section-desc">
+
+資產規劃不只是購買金融商品，
+而是一項整合法律、稅務、金融及風險管理的系統工程。
+
+</p>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>法律</h3>
+
+<p>
+產權安排與法律架構設計
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>稅務</h3>
+
+<p>
+降低傳承過程稅務成本
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>金融</h3>
+
+<p>
+建立穩健的現金流架構
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>風險管理</h3>
+
+<p>
+降低婚姻、債務與詐騙風險
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="pillars">
+
+<h2>
+
+財富導航藍圖｜五大核心工程
+
+</h2>
+
+<div class="grid">
+
+<div class="pillar">
+<h3>樂活退休</h3>
+<p>先保全自己的人生主控權</p>
+</div>
+
+<div class="pillar">
+<h3>稅務優化</h3>
+<p>降低生前與身後移轉成本</p>
+</div>
+
+<div class="pillar">
+<h3>精準分配</h3>
+<p>兼顧公平與傳承意願</p>
+</div>
+
+<div class="pillar">
+<h3>風險防火牆</h3>
+<p>防範家族與外部風險</p>
+</div>
+
+<div class="pillar">
+<h3>資產保全</h3>
+<p>守護世代財富完整性</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="diagnosis">
+
+<h2>
+
+六象限資產診斷
+
+</h2>
+
+<p class="section-desc">
+
+透過六象限診斷，
+快速盤點家族資產與潛在風險。
+
+</p>
+
+<div class="grid">
+
+<div class="card">不動產</div>
+
+<div class="card">農地</div>
+
+<div class="card">股權及動產</div>
+
+<div class="card">遺囑</div>
+
+<div class="card">信託</div>
+
+<div class="card">保險</div>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2>
+
+核心服務
+
+</h2>
+
+<div class="service">
+
+<h3>
+
+不動產傳承規劃
+
+</h3>
+
+<p>
+
+不動產持有結構、
+稅務分析與繼承規劃。
+
+</p>
+
+</div>
+
+<div class="service">
+
+<h3>
+
+遺囑規劃
+
+</h3>
+
+<p>
+
+建立清楚的財產分配機制。
+
+</p>
+
+</div>
+
+<div class="service">
+
+<h3>
+
+信託設計
+
+</h3>
+
+<p>
+
+資產保全與指定用途照護。
+
+</p>
+
+</div>
+
+<div class="service">
+
+<h3>
+
+保險策略
+
+</h3>
+
+<p>
+
+創造稅源與流動性資金。
+
+</p>
+
+</div>
+
+</section>
+
+<section id="slides">
+
+<h2>
+
+財富傳承藍圖簡報
+
+</h2>
+
+<div class="gallery">
+
+<img src="images/slide1.jpg" alt="slide1">
+
+<img src="images/slide2.jpg" alt="slide2">
+
+<img src="images/slide3.jpg" alt="slide3">
+
+<img src="images/slide4.jpg" alt="slide4">
+
+<img src="images/slide5.jpg" alt="slide5">
+
+<img src="images/slide6.jpg" alt="slide6">
+
+<img src="images/slide7.jpg" alt="slide7">
+
+<img src="images/slide8.jpg" alt="slide8">
+
+<img src="images/slide9.jpg" alt="slide9">
+
+<img src="images/slide10.jpg" alt="slide10">
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>
+
+預約資產傳承諮詢
+
+</h2>
+
+<form
+id="consultForm"
+action="https://formspree.io/f/xxxxxxx"
+method="POST">
+
+<input
+type="text"
+id="name"
+name="name"
+placeholder="姓名">
+
+<input
+type="tel"
+id="phone"
+name="phone"
+placeholder="手機號碼">
+
+<input
+type="email"
+id="email"
+name="email"
+placeholder="電子郵件">
+
+<textarea
+id="message"
+name="message"
+placeholder="請描述您的需求">
+</textarea>
+
+<input
+type="text"
+name="_gotcha"
+class="hp">
+
+<button
+type="submit"
+class="btn-gold">
+
+送出預約
+
+</button>
+
+<div id="formMessage"></div>
+
+</form>
+
+<div class="contact-card">
+
+<h3>
+
+鴻成地政士事務所
+
+</h3>
+
+<p>
+
+📞 0910749363
+
+</p>
+
+<p>
+
+📧 hongcheng059@gmail.com
+
+</p>
+
+<h4>
+
+LINE 官方帳號
+
+</h4>
+
+<img
+src="images/line-qrcode.png"
+alt="LINE QR"
+class="qrcode">
+
+</div>
+
+</section>
+
+<footer>
+
+<div>
+
+鴻成地政士事務所
+
+</div>
+
+<div>
+
+© 2026 Hong Cheng Land Administration Office
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
 
 </body>
-</html>
 
-    
+</html>
