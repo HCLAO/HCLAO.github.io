@@ -354,3 +354,26 @@ box-shadow:var(--shadow);
 .card:hover{
 
 transform
+
+nav a.active{
+    color:#d4af37;
+}
+
+.loaded .hero-content{
+    animation:
+    fadeHero 1.5s ease;
+}
+
+@keyframes fadeHero{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
