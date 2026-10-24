@@ -1,67 +1,76 @@
-/* =====================================
+/* ====================================
    鴻成地政士事務所
-   Wealth Architecture Website
-   Version 1.0
-===================================== */
+   script.js
+   Premium Black Gold Edition
+==================================== */
+
+/* ====================================
+   頁面載入動畫
+==================================== */
 
 window.addEventListener("load", () => {
     document.body.classList.add("loaded");
 });
 
-/* =====================================
+
+/* ====================================
    回到頂端按鈕
-===================================== */
+==================================== */
 
 const topBtn = document.getElementById("topBtn");
 
-window.addEventListener("scroll", () => {
+if (topBtn) {
 
-    if (window.scrollY > 500) {
+    window.addEventListener("scroll", () => {
 
-        topBtn.classList.add("show");
+        if (window.scrollY > 500) {
 
-    } else {
+            topBtn.classList.add("show");
 
-        topBtn.classList.remove("show");
+        } else {
 
-    }
+            topBtn.classList.remove("show");
 
-});
+        }
 
-topBtn.addEventListener("click", () => {
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
     });
 
-});
+    topBtn.addEventListener("click", () => {
 
-/* =====================================
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+
+/* ====================================
    平滑捲動
-===================================== */
+==================================== */
 
 document
 .querySelectorAll('nav a[href^="#"]')
 .forEach(anchor => {
 
-    anchor.addEventListener("click", function(e){
+    anchor.addEventListener("click", function (e) {
 
         e.preventDefault();
 
         const target =
-        document.querySelector(
-        this.getAttribute("href")
-        );
+            document.querySelector(
+                this.getAttribute("href")
+            );
 
-        if(target){
+        if (target) {
 
             window.scrollTo({
 
-                top:
-                target.offsetTop - 80,
+                top: target.offsetTop - 80,
 
-                behavior:"smooth"
+                behavior: "smooth"
 
             });
 
@@ -71,9 +80,10 @@ document
 
 });
 
-/* =====================================
-   導覽列 Active 狀態
-===================================== */
+
+/* ====================================
+   Navbar Active
+==================================== */
 
 const sections =
 document.querySelectorAll("section");
@@ -88,20 +98,18 @@ window.addEventListener("scroll", () => {
     sections.forEach(section => {
 
         const sectionTop =
-        section.offsetTop - 150;
+            section.offsetTop - 120;
 
         const sectionHeight =
-        section.offsetHeight;
+            section.offsetHeight;
 
-        if(
-
-            pageYOffset >= sectionTop &&
-            pageYOffset < sectionTop + sectionHeight
-
-        ){
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
 
             currentSection =
-            section.getAttribute("id");
+                section.getAttribute("id");
 
         }
 
@@ -111,12 +119,10 @@ window.addEventListener("scroll", () => {
 
         link.classList.remove("active");
 
-        if(
-
+        if (
             link.getAttribute("href") ===
             "#" + currentSection
-
-        ){
+        ) {
 
             link.classList.add("active");
 
@@ -126,37 +132,32 @@ window.addEventListener("scroll", () => {
 
 });
 
-/* =====================================
-   Scroll Reveal Animation
-===================================== */
 
-const animateElements =
+/* ====================================
+   Scroll Reveal
+==================================== */
+
+const revealElements =
 document.querySelectorAll(
 
-".card, .pillar, .service, .gallery img, .contact-card"
+".card, .pillar, .service, .contact-card"
 
 );
 
-animateElements.forEach(el => {
+revealElements.forEach(el => {
 
     el.classList.add("fade-up");
 
 });
 
-const observerOptions = {
-
-    threshold:0.15
-
-};
-
 const revealObserver =
 new IntersectionObserver(
 
-(entries)=>{
+(entries) => {
 
-    entries.forEach(entry=>{
+    entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
             entry.target.classList.add("show");
 
@@ -166,28 +167,186 @@ new IntersectionObserver(
 
 },
 
-observerOptions
+{
+    threshold: 0.15
+}
 
 );
 
-animateElements.forEach(el=>{
+revealElements.forEach(el => {
 
     revealObserver.observe(el);
 
 });
 
-/* =====================================
-   Gallery Image Animation
-===================================== */
+
+/* ====================================
+   Gallery Animation
+==================================== */
 
 const galleryImages =
-document.querySelectorAll(".gallery img");
+document.querySelectorAll(
+".gallery img"
+);
 
-galleryImages.forEach(img=>{
+const imageObserver =
+new IntersectionObserver(
+
+(entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.style.opacity = "1";
+
+            entry.target.style.transform =
+                "translateY(0)";
+
+        }
+
+    });
+
+},
+
+{
+    threshold: 0.1
+}
+
+);
+
+galleryImages.forEach(img => {
 
     img.style.opacity = "0";
 
     img.style.transform =
-    "translateY(40px)";
+        "translateY(40px)";
 
-    img.
+    img.style.transition =
+        "all .9s ease";
+
+    imageObserver.observe(img);
+
+});
+
+
+/* ====================================
+   Card Hover Glow
+   桌機版才啟用
+==================================== */
+
+if (window.innerWidth > 768) {
+
+    const hoverCards =
+    document.querySelectorAll(
+    ".card, .pillar, .service"
+    );
+
+    hoverCards.forEach(card => {
+
+        card.addEventListener(
+
+        "mousemove",
+
+        function (e) {
+
+            const rect =
+                this.getBoundingClientRect();
+
+            const x =
+                e.clientX - rect.left;
+
+            const y =
+                e.clientY - rect.top;
+
+            this.style.background =
+
+            `radial-gradient(
+            circle at ${x}px ${y}px,
+            rgba(212,175,55,.15),
+            #181818 60%
+            )`;
+
+        });
+
+        card.addEventListener(
+
+        "mouseleave",
+
+        function () {
+
+            this.style.background = "";
+
+        });
+
+    });
+
+}
+
+
+/* ====================================
+   Navbar Shadow
+==================================== */
+
+const navBar =
+document.querySelector("nav");
+
+if (navBar) {
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 60) {
+
+            navBar.style.background =
+                "rgba(0,0,0,.98)";
+
+            navBar.style.boxShadow =
+                "0 5px 20px rgba(0,0,0,.4)";
+
+        } else {
+
+            navBar.style.background =
+                "rgba(0,0,0,.92)";
+
+            navBar.style.boxShadow =
+                "none";
+
+        }
+
+    });
+
+}
+
+
+/* ====================================
+   Footer 年份自動更新
+==================================== */
+
+const copyright =
+document.getElementById(
+"copyright-year"
+);
+
+if (copyright) {
+
+    copyright.innerHTML =
+
+    `© ${new Date().getFullYear()}
+    All Rights Reserved`;
+
+}
+
+
+/* ====================================
+   Console Signature
+==================================== */
+
+console.log(
+"%c鴻成地政士事務所",
+"color:#d4af37;font-size:22px;font-weight:bold;"
+);
+
+console.log(
+"%c財富傳承藍圖官網已成功載入",
+"color:#ffffff;font-size:14px;"
+);
