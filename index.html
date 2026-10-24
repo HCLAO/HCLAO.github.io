@@ -16,18 +16,31 @@
         .serif {
             font-family: 'Noto Serif TC', serif;
         }
+        /* 使用絕對安全、100% 顯現的 CSS 線性漸層與紋理 */
         .hero-bg {
-            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://unsplash.com');
-            background-size: cover;
-            background-position: center;
+            background-color: #0f172a;
+            background-image: radial-gradient(at 0% 0%, rgba(217, 119, 6, 0.15) 0px, transparent 50%), 
+                              radial-gradient(at 50% 0%, rgba(15, 23, 42, 0.95) 0px, transparent 50%),
+                              linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
         }
     </style>
 </head>
 <body class="text-slate-800 leading-relaxed scroll-smooth">
 
     <!-- 主視覺形象區塊 -->
-    <header class="relative hero-bg text-amber-100 py-36 px-6 text-center border-b-4 border-amber-600">
-        <div class="max-w-4xl mx-auto">
+    <header class="relative hero-bg text-amber-100 py-36 px-6 text-center border-b-4 border-amber-600 overflow-hidden">
+        <!-- 背景幾何裝飾線條，確保 100% 顯現不掉圖 -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg width="100%" height="100%" xmlns="http://w3.org">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        <div class="max-w-4xl mx-auto relative z-10">
             <div class="inline-flex items-center gap-2 bg-amber-600/20 border border-amber-500/30 px-4 py-1.5 rounded-full text-amber-400 font-medium tracking-widest text-sm uppercase mb-6">
                 <i class="fa-solid fa-gavel text-xs"></i> 鴻成地政士事務所
             </div>
@@ -37,7 +50,7 @@
             <p class="text-xl md:text-2xl text-amber-200/80 font-light max-w-2xl mx-auto mb-10 serif">
                 為您的世代基業，構築一座堅實的堡壘
             </p>
-            <a href="#contact" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-medium text-lg px-8 py-3.5 rounded shadow-lg transition duration-300">
+            <a href="#contact" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-medium text-lg px-8 py-3.5 rounded shadow-lg transition duration-300 transform hover:-translate-y-0.5">
                 <i class="fa-solid fa-calendar-check"></i> 預約免費深度諮詢
             </a>
         </div>
@@ -51,6 +64,7 @@
             <div class="h-1 w-16 bg-amber-600 mx-auto mt-4"></div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- 挑戰 1 -->
             <div class="bg-white p-8 rounded-xl shadow-md border border-slate-100 transition duration-300 hover:shadow-xl">
                 <div class="w-14 h-14 bg-amber-50 rounded-lg flex items-center justify-center text-amber-600 text-2xl mb-6 shadow-sm">
                     <i class="fa-solid fa-coins"></i>
@@ -58,6 +72,7 @@
                 <h3 class="serif text-xl font-bold text-slate-900 mb-3">高額稅負</h3>
                 <p class="text-slate-600">未經規劃的資產轉移，可能導致高達數百萬甚至千萬的稅務成本，侵蝕您辛苦積累的財富。</p>
             </div>
+            <!-- 挑戰 2 -->
             <div class="bg-white p-8 rounded-xl shadow-md border border-slate-100 transition duration-300 hover:shadow-xl">
                 <div class="w-14 h-14 bg-amber-50 rounded-lg flex items-center justify-center text-amber-600 text-2xl mb-6 shadow-sm">
                     <i class="fa-solid fa-people-arrows"></i>
@@ -65,6 +80,7 @@
                 <h3 class="serif text-xl font-bold text-slate-900 mb-3">家族紛爭</h3>
                 <p class="text-slate-600">分配方式的模糊或不公，容易引發家庭成員間的矛盾與對立，和睦的家庭關係是無價的資產。</p>
             </div>
+            <!-- 挑戰 3 -->
             <div class="bg-white p-8 rounded-xl shadow-md border border-slate-100 transition duration-300 hover:shadow-xl">
                 <div class="w-14 h-14 bg-amber-50 rounded-lg flex items-center justify-center text-amber-600 text-2xl mb-6 shadow-sm">
                     <i class="fa-solid fa-shield-halved"></i>
@@ -75,12 +91,18 @@
         </div>
     </section>
 
-    <!-- 圖像化對比區塊 -->
+    <!-- 圖像化對比區塊 (已將不穩定的 Unsplash 圖片更換為完美的幾何矢量插圖) -->
     <section class="py-24 bg-slate-900 text-white px-6">
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="https://unsplash.com" alt="房產傳承規劃" class="rounded-xl shadow-2xl border border-slate-700">
+                <!-- 左側：使用 SVG 繪製的高質感天平與城堡幾何圖形，保證 100% 顯現 -->
+                <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700/60 flex items-center justify-center min-h-[300px] relative overflow-hidden shadow-inner">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-amber-600/5 to-transparent"></div>
+                    <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="opacity-80">
+                        <path d="M12 22V2M2 5h20M5 5a7 7 0 0 0 14 0M3 21h18M12 21H3m9 0h9" />
+                        <circle cx="5" cy="5" r="1" />
+                        <circle cx="19" cy="5" r="1" />
+                    </svg>
                 </div>
                 <div class="space-y-8">
                     <div>
@@ -88,10 +110,12 @@
                         <h2 class="serif text-3xl md:text-4xl font-bold text-white mb-4">一棟房產，兩種未來<br><span class="text-amber-400">規劃與否的巨大稅務差異</span></h2>
                         <p class="text-slate-400">以市價 3000 萬的房產傳承為例：</p>
                     </div>
+                    
                     <div class="bg-slate-800 p-6 rounded-lg border-l-4 border-red-500">
                         <h4 class="font-bold text-red-400 text-lg mb-1"><i class="fa-solid fa-triangle-exclamation"></i> 未經規劃的繼承</h4>
                         <p class="text-slate-300 text-sm">未來傳承可能面臨 <span class="text-red-400 font-bold text-xl">600 萬至 1100 萬</span> 的鉅額稅負（含遺產稅與房地合一稅）。</p>
                     </div>
+
                     <div class="bg-slate-800 p-6 rounded-lg border-l-4 border-emerald-500">
                         <h4 class="font-bold text-emerald-400 text-lg mb-1"><i class="fa-solid fa-circle-check"></i> 透過專業策略規劃</h4>
                         <p class="text-slate-300 text-sm">透過合法有效的宏觀策略，顯著降低稅務衝擊，將最大化的資產百分之百留給摯愛的家人。</p>
@@ -111,27 +135,33 @@
                 <p class="text-slate-500 max-w-xl mx-auto mt-2">應對複雜挑戰，需要系統性的完整藍圖，而非零散的頭痛醫頭工法。</p>
                 <div class="h-1 w-16 bg-amber-600 mx-auto mt-4"></div>
             </div>
+
             <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                <!-- 支柱 1 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/60 text-center transition hover:shadow-md">
                     <div class="text-amber-600 text-xl mb-3"><i class="fa-solid fa-umbrella"></i></div>
                     <h4 class="serif font-bold text-lg mb-3 text-slate-900">第一支柱<br>退休規劃</h4>
                     <p class="text-xs text-slate-600 text-justify">先保全自己再傳承。確保退休金流無虞，在贈與與自我保留間取得完美平衡。</p>
                 </div>
+                <!-- 支柱 2 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/60 text-center transition hover:shadow-md">
                     <div class="text-amber-600 text-xl mb-3"><i class="fa-solid fa-calculator"></i></div>
                     <h4 class="serif font-bold text-lg mb-3 text-slate-900">第二支柱<br>稅務策略</h4>
                     <p class="text-xs text-slate-600 text-justify">積極規劃新制房地合一稅、贈與稅與遺產稅，將合法的節稅轉化為資產優勢。</p>
                 </div>
+                <!-- 支柱 3 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/60 text-center transition hover:shadow-md">
                     <div class="text-amber-600 text-xl mb-3"><i class="fa-solid fa-diagram-project"></i></div>
                     <h4 class="serif font-bold text-lg mb-3 text-slate-900">第三支柱<br>資產分配</h4>
                     <p class="text-xs text-slate-600 text-justify">清晰分配是和睦基石。朝「產權單獨所有」方向規劃，徹底杜絕多共有產權衍生內訌。</p>
                 </div>
+                <!-- 支柱 4 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/60 text-center transition hover:shadow-md">
                     <div class="text-amber-600 text-xl mb-3"><i class="fa-solid fa-scale-balanced"></i></div>
                     <h4 class="serif font-bold text-lg mb-3 text-slate-900">第四支柱<br>風險控管</h4>
                     <p class="text-xs text-slate-600 text-justify">建立具法律效力的機制，包含預立遺囑確定分配、信託管理資產、保險鎖定受益人。</p>
                 </div>
+                <!-- 支柱 5 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/60 text-center transition hover:shadow-md">
                     <div class="text-amber-600 text-xl mb-3"><i class="fa-solid fa-vault"></i></div>
                     <h4 class="serif font-bold text-lg mb-3 text-slate-900">第五支柱<br>資產保全</h4>
@@ -141,7 +171,7 @@
         </div>
     </section>
 
-    <!-- 工具箱深挖區塊 -->
+    <!-- 工具箱深挖區塊 (已將不穩定圖片移除，改為高質感的幾何光影配置) -->
     <section class="py-24 bg-slate-900 text-slate-300 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-16">
@@ -150,10 +180,14 @@
                     <h2 class="serif text-3xl font-bold text-white">傳承堡壘的<br>建築師工具箱</h2>
                     <p class="text-slate-400 text-sm mt-4">我們絕不綁定單一金融產品，而是靈活交叉組合最適合您家族願景的策略機制。</p>
                 </div>
-                <div class="lg:col-span-2">
-                    <img src="https://unsplash.com" alt="法律金融工具" class="rounded-xl shadow-xl max-h-64 w-full object-cover border border-slate-700">
+                <!-- 右側：高質感的密碼鎖與數據幾何光影效果，100% 安全載入 -->
+                <div class="lg:col-span-2 bg-gradient-to-br from-amber-600/10 to-slate-800 p-8 rounded-2xl border border-slate-700/60 flex justify-around items-center min-h-[160px]">
+                    <div class="text-center text-amber-500/40"><i class="fa-solid fa-shield-halved text-5xl"></i></div>
+                    <div class="text-center text-amber-500/40"><i class="fa-solid fa-building-columns text-5xl"></i></div>
+                    <div class="text-center text-amber-500/40"><i class="fa-solid fa-signature text-5xl"></i></div>
                 </div>
             </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="p-8 rounded-xl bg-slate-800 border border-slate-700/60">
                     <div class="text-amber-400 text-xl mb-4"><i class="fa-solid fa-file-signature"></i> 遺囑 (Will)</div>
@@ -215,7 +249,7 @@
                         </div>
                         <div>
                             <p class="text-xs text-slate-500">專線電話</p>
-                            <p class="font-medium tracking-wider text-white">0910749363</p>
+                            <p class="font-medium tracking-wider text-white">0982588249</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4 bg-slate-900/50 p-4 rounded-xl border border-slate-700/50">
@@ -235,3 +269,5 @@
 
 </body>
 </html>
+
+    
